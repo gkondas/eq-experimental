@@ -13,7 +13,9 @@ Install EveryQuery into your environment so the `EQ_*` console scripts are on `P
 # From the eq-experimental root — creates .venv and installs this repo's deps
 uv sync
 
-# Install EveryQuery into the same venv
+# Install EveryQuery into the same venv — from PyPI:
+uv pip install EveryQuery
+# or from a local checkout (editable):
 uv pip install -e /path/to/EveryQuery
 
 # Activate so EQ_* is on PATH when you sbatch
