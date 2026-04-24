@@ -4,14 +4,29 @@ Experimental scripts and launchers for the EveryQuery paper.
 
 ## Setup
 
-Install EveryQuery into your environment so the `EQ_*` console scripts are on `PATH`:
+Clone this repo onto the cluster and `sbatch` from its root — logs write to `logs/` here (gitignored).
 
+Install EveryQuery into your environment so the `EQ_*` console scripts are on `PATH`. Two options:
+
+**With uv (recommended):**
+```bash
+# From the eq-experimental root — creates .venv and installs this repo's deps
+uv sync
+
+# Install EveryQuery into the same venv
+uv pip install -e /path/to/EveryQuery
+
+# Activate so EQ_* is on PATH when you sbatch
+source .venv/bin/activate
+
+which EQ_train  # should resolve
+```
+
+**With pip:**
 ```bash
 pip install -e /path/to/EveryQuery
 which EQ_train  # should resolve
 ```
-
-Clone this repo onto the cluster and `sbatch` from its root — logs write to `logs/` here (gitignored).
 
 ## How to use a script
 
