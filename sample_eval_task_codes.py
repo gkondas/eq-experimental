@@ -15,7 +15,7 @@ def stable_hash_list(items: list[str]) -> str:
     return h.hexdigest()[:12]
 
 PARQUET_PATH = "/users/gbk2114/eq_stuff/eq-tok-check/tokenizations/no_time_deltas/processed/metadata/codes.parquet"
-N_SAMPLES = 1
+N_SAMPLES = 100
 SEED = 42
 OUT_DIR = Path("/users/gbk2114/eq_stuff/eq-tok-check/tokenizations/no_time_deltas")
 
