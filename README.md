@@ -6,29 +6,16 @@ Experimental scripts and launchers for the EveryQuery paper.
 
 Clone this repo onto the cluster and `sbatch` from its root — logs write to `logs/` here (gitignored).
 
-Install EveryQuery into your environment so the `EQ_*` console scripts are on `PATH`. Two options:
+Python is pinned to 3.11 via `.python-version`; deps are locked in `uv.lock`. To create a reproducible venv:
 
-**With uv (recommended):**
 ```bash
-# From the eq-experimental root — creates .venv and installs this repo's deps
-uv sync
-
-# Install EveryQuery into the same venv — from PyPI:
-uv pip install EveryQuery
-# or from a local checkout (editable):
-uv pip install -e /path/to/EveryQuery
-
-# Activate so EQ_* is on PATH when you sbatch
+uv sync --frozen
 source .venv/bin/activate
-
-which EQ_train  # should resolve
 ```
 
-**With pip:**
-```bash
-pip install -e /path/to/EveryQuery
-which EQ_train  # should resolve
-```
+`--frozen` installs exactly what's in `uv.lock` and fails if the lockfile is stale (instead of silently re-resolving). To update deps, edit `pyproject.toml`, run `uv lock`, and commit the new `uv.lock`.
+
+The `EQ_*` console scripts must be on `PATH` separately — install EveryQuery into the same venv however your workflow prefers (e.g. `uv pip install EveryQuery` or `uv pip install -e /path/to/EveryQuery`). It is intentionally not a dependency of this repo so the lock stays standalone.
 
 ## How to use a script
 
