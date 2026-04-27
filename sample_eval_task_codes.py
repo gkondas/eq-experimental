@@ -14,10 +14,10 @@ def stable_hash_list(items: list[str]) -> str:
         h.update(b"\n")
     return h.hexdigest()[:12]
 
-PARQUET_PATH = "/users/gbk2114/eq_stuff/eq-tok-check/tokenizations/no_time_deltas/processed/metadata/codes.parquet"
-N_SAMPLES = 100
+PARQUET_PATH = "/groups/mm6677_gp/gbk2114/columbia-meds/processed/metadata/codes.parquet"
+N_SAMPLES = 200
 SEED = 42
-OUT_DIR = Path("/users/gbk2114/eq_stuff/eq-tok-check/tokenizations/no_time_deltas")
+OUT_DIR = Path("/users/gbk2114/columbia-eq/eval_codes")
 
 random.seed(SEED)
 
