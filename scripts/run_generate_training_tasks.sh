@@ -10,6 +10,8 @@
 #SBATCH --array=0-291%20
 #
 # Each array task = one input shard; 16 task_shards run as a Hydra multirun within each array task.
+# To restrict training to a sampled codes YAML (e.g. train_codes.yaml from make_code_split.py):
+#   sbatch scripts/run_generate_training_tasks.sh codes=/path/to/train_codes.yaml
 # Usage: sbatch scripts/run_generate_training_tasks.sh [hydra overrides...]
 
 set -euo pipefail

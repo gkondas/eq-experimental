@@ -79,10 +79,37 @@ Same structure as training-task gen but for eval. Output goes to `$TASK_DIR/eval
 
 - **Exports to set:** `INTERMEDIATE`, `PROCESSED`, `TASK_DIR`
 - **Partition:** cpu
-- **To use a sampled codes YAML** (from `sample_eval_task_codes.py`) instead of the full vocab:
+- **To use a sampled codes YAML** (from `sample_eval_task_codes.py` or `make_code_split.py`) instead of the full vocab:
   ```bash
   sbatch scripts/run_generate_evaluation_tasks.sh codes=/path/to/eval_codes.yaml
   ```
+
+### Producing a coordinated train / eval code split
+
+`make_code_split.py` produces a single seeded split directory with all
+artifacts needed to run a held-out-codes experiment:
+
+```
+eval_codes/split__seed42__pool{H1}__ood{H2}__id{H3}/
+  manifest.yaml          # seed, source parquet, sizes, hashes, ID/OOD membership
+  train_codes.yaml       # full vocab − 100 OOD codes (point training task gen here)
+  ood_eval_codes.yaml    # 100 codes held out from training
+  id_eval_codes.yaml     # 100 codes sampled from the train pool
+  eval_codes.yaml        # combined 200 codes (OOD ∪ ID), flat list
+```
+
+Wire the split into the pipeline:
+
+```bash
+# Train sees only the train pool
+sbatch scripts/run_generate_training_tasks.sh codes=/.../split__.../train_codes.yaml
+
+# Eval task gen on the combined 200-code eval set
+sbatch scripts/run_generate_evaluation_tasks.sh codes=/.../split__.../eval_codes.yaml
+```
+
+The ID/OOD breakdown for the combined eval lives in `manifest.yaml` —
+use it to compute per-split metrics downstream.
 
 ### `scripts/run_train.sh`
 
