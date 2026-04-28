@@ -20,7 +20,7 @@ PARQUET_PATH = "/groups/mm6677_gp/gbk2114/columbia-meds/processed/metadata/codes
 N_OOD = 100
 N_ID = 100
 SEED = 42
-OUT_ROOT = Path("/users/gbk2114/columbia-eq/eval_codes")
+OUT_ROOT = Path("/groups/mm6677_gp/gbk2114/columbia-eq/code-split")
 
 
 def write_codes_yaml(path: Path, codes: list[str]) -> None:
