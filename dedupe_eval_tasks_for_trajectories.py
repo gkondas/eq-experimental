@@ -33,7 +33,8 @@ def dedupe_parquet(src: Path, dst: Path) -> tuple[int, int]:
     df = pl.read_parquet(src)
     before = df.height
     out = (
-        df.unique(subset=["subject_id", "prediction_time"])
+        df.filter(pl.col("boolean_value").is_not_null())
+        .unique(subset=["subject_id", "prediction_time"])
         .select(["subject_id", "prediction_time"])
         .sort(["subject_id", "prediction_time"])
     )
