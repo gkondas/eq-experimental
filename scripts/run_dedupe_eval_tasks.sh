@@ -25,7 +25,7 @@ mkdir -p logs
 
 # === Edit these for your run ===
 INPUT_DIR=/groups/mm6677_gp/gbk2114/columbia-meds/task_sampler_5_years/eval
-OUTPUT_DIR=/groups/mm6677_gp/gbk2114/columbia-meds/task_sampler/eval_unique_index
+OUTPUT_DIR=/groups/mm6677_gp/gbk2114/columbia-meds/task_sampler_5_years/eval_unique_index
 # ================================
 
 echo "Starting job on $(hostname) at $(date)"
