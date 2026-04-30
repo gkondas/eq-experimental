@@ -24,8 +24,8 @@ cd "${SLURM_SUBMIT_DIR:-$PWD}"
 mkdir -p logs
 
 # === Edit these for your run ===
-INPUT_DIR=/users/gbk2114/mimic-eq/eval_tasks/eval
-OUTPUT_DIR=/users/gbk2114/mimic-eq//eval_unique_index
+INPUT_DIR=/groups/mm6677_gp/gbk2114/columbia-meds/eval/eval
+OUTPUT_DIR=/groups/mm6677_gp/gbk2114/columbia-meds/eval_unique_index
 # ================================
 
 echo "Starting job on $(hostname) at $(date)"
