@@ -16,11 +16,11 @@ def stable_hash_list(items: list[str]) -> str:
     return h.hexdigest()[:12]
 
 
-PARQUET_PATH = "/groups/mm6677_gp/data/MIMIC_MEDS/MEDS_cohort/processed/metadata/codes.parquet"
+PARQUET_PATH = "/groups/mm6677_gp/data/NWICU/processed/metadata/codes.parquet"
 N_OOD = 100
 N_ID = 100
 SEED = 42
-OUT_ROOT = Path("/groups/mm6677_gp/gbk2114/mimic-eq/code-split")
+OUT_ROOT = Path("/groups/mm6677_gp/data/NWICU/code-split")
 
 
 def write_codes_yaml(path: Path, codes: list[str]) -> None:
