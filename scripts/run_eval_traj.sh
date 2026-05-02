@@ -5,7 +5,7 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --partition=cpu
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=700G
+#SBATCH --mem=400G
 #SBATCH --time=30:00
 #
 # Usage: sbatch scripts/run_eval_traj.sh
