@@ -3,6 +3,8 @@ name = "eq-experimental"
 version = "0.1.0"
 requires-python = ">=3.11"
 dependencies = [
+    "meds-trajectory-evaluation>=0.0.6",
     "polars>=1.35,<2",
     "pyyaml>=6,<7",
+    "ruff>=0.15.12",
 ]

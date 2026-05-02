@@ -16,7 +16,10 @@ mkdir -p logs
 
 echo "Starting job on $(hostname) at $(date)"
 
+# Path to an eval_codes.yaml file with shape {codes: [...]}.
 INPUT=TODO_INPUT_PATH
+# Path to write the predicates YAML to ({predicates: {<key>: {code: <code>}}}).
+# Must not already exist; the script opens it in exclusive-create mode.
 OUTPUT=TODO_OUTPUT_PATH
 
 uv run python make_predicates_yaml.py \
