@@ -20,9 +20,8 @@ TRAJ_ROOT = Path(
 )  # dir OR single parquet file
 
 # yaml defining which codes/tasks to eval
-PREDICATE_SET = "10000_ID__8db2be6fadf8"
 PREDICATES_YAML = Path(
-    f"/users/gbk2114/eq_stuff/sample_codes/make_traj_eval_predicates/predicates_{PREDICATE_SET}.yaml"
+    "/groups/mm6677_gp/gbk2114/columbia-eq/code-split/split__seed42__poolc75b328e959b__ooda7759bfdd359__id71dda1371215/ar-eval-predicate-codes.yaml"
 )
 
 # Optional knobs
@@ -44,7 +43,7 @@ EXCLUDE_HISTORY = False  # or True, or ["task_name_1", "task_name_2"]
 
 
 OUT_PARQUET = Path(
-    f"/users/gbk2114/eic_stuff/columbia-eic/traj-eval-results/temporal-auc-results.parquet"
+    "/users/gbk2114/eic_stuff/columbia-eic/traj-eval-results/temporal-auc-results.parquet"
 )
 
 
