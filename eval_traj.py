@@ -51,7 +51,7 @@ DURATION_GRID = [
     timedelta(1826),
 ]
 # DURATION_GRID = [timedelta(days=2), timedelta(days=4), timedelta(days=10), timedelta(days=12), timedelta(days=18), timedelta(days=19), timedelta(days=39), timedelta(days=64), timedelta(days=70), timedelta(days=99), timedelta(days=148), timedelta(days=151), timedelta(days=165), timedelta(days=170), timedelta(days=178), timedelta(days=227), timedelta(days=235), timedelta(days=288), timedelta(days=361), timedelta(days=451)]
-AUC_DIST_APPROX = -1  # -1 means "no approximation" (per your defaults)
+AUC_DIST_APPROX = 2000  # -1 means "no approximation" (per your defaults)
 SEED = 42
 OFFSET = timedelta(0)  # e.g. timedelta(hours=1)
 EXCLUDE_HISTORY = False  # or True, or ["task_name_1", "task_name_2"]
