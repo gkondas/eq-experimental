@@ -24,6 +24,10 @@ PREDICATES_YAML = Path(
     "/groups/mm6677_gp/gbk2114/columbia-eq/code-split/split__seed42__poolc75b328e959b__ooda7759bfdd359__id71dda1371215/ar-eval-predicate-codes.yaml"
 )
 
+OUT_PARQUET = Path(
+    "/users/gbk2114/eic_stuff/columbia-eic/traj-eval-results/temporal-auc-results.parquet"
+)
+
 # Optional knobs
 DURATION_GRID = [
     timedelta(days=30),
@@ -40,11 +44,6 @@ AUC_DIST_APPROX = -1  # -1 means "no approximation" (per your defaults)
 SEED = 42
 OFFSET = timedelta(0)  # e.g. timedelta(hours=1)
 EXCLUDE_HISTORY = False  # or True, or ["task_name_1", "task_name_2"]
-
-
-OUT_PARQUET = Path(
-    "/users/gbk2114/eic_stuff/columbia-eic/traj-eval-results/temporal-auc-results.parquet"
-)
 
 
 def main() -> None:
