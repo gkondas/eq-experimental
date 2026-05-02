@@ -24,19 +24,19 @@ from MEDS_trajectory_evaluation.temporal_AUC_evaluation.trajectory_AUC import (
 # FILL THESE IN
 # ----------------------------
 MEDS_PARQUET = Path(
-    "/groups/mm6677_gp/gbk2114/columbia-meds/intermediate/data/held_out"
+    "/groups/mm6677_gp/data/NWICU/intermediate/data/held_out"
 )  # reference MEDS dataframe
 TRAJ_ROOT = Path(
-    "/users/gbk2114/eic_stuff/columbia-eic/traj-combined"
+    "/users/gbk2114/eic_stuff/nwicu-eic/trajectories/medium_seq_1024/first/held_out"
 )  # dir OR single parquet file
 
 # yaml defining which codes/tasks to eval
 PREDICATES_YAML = Path(
-    "/groups/mm6677_gp/gbk2114/columbia-eq/code-split/split__seed42__poolc75b328e959b__ooda7759bfdd359__id71dda1371215/ar-eval-predicate-codes.yaml"
+    "/groups/mm6677_gp/data/NWICU/code-split/split__seed42__pool3cc17c86f45e__oodb0e525c8bf23__id14c9331281ce/ar-eval-predicate-codes.yaml"
 )
 
 OUT_PARQUET = Path(
-    "/users/gbk2114/eic_stuff/columbia-eic/traj-eval-results/temporal-auc-results.parquet"
+    "/users/gbk2114/eic_stuff/nwicu-eic/traj-eval-results/temporal-auc-results.parquet"
 )
 
 # Optional knobs
@@ -75,7 +75,7 @@ def main() -> None:
     )
 
     logger.info("result:\n%s", out)
-    OUT_PARQUET.parent.mkdir(parents=True, exist_ok=True)
+    OUT_PARQUET.parent.mkdir(parents=True, exist_ok=False)
     out.write_parquet(OUT_PARQUET)
     logger.info("wrote results to %s", OUT_PARQUET)
 
