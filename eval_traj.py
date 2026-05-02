@@ -1,7 +1,18 @@
+import logging
+import sys
 from pathlib import Path
 from datetime import timedelta
 
 import polars as pl
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+    stream=sys.stdout,
+    force=True,
+)
+logger = logging.getLogger("eval_traj")
 
 # NOTE: adjust this import to match your package/module layout.
 # From your description, this should be correct:
@@ -47,10 +58,11 @@ EXCLUDE_HISTORY = False  # or True, or ["task_name_1", "task_name_2"]
 
 
 def main() -> None:
-    print("reading meds_df")
+    logger.info("reading meds_df from %s", MEDS_PARQUET)
     meds_df = pl.read_parquet(MEDS_PARQUET, use_pyarrow=True)
+    logger.info("loaded meds_df: shape=%s", meds_df.shape)
 
-    print("starting temporal_auc_from_trajectory_files()")
+    logger.info("starting temporal_auc_from_trajectory_files()")
     out = temporal_auc_from_trajectory_files(
         MEDS_df=meds_df,
         trajectories=TRAJ_ROOT,
@@ -62,9 +74,10 @@ def main() -> None:
         exclude_history=EXCLUDE_HISTORY,
     )
 
-    print(out)
+    logger.info("result:\n%s", out)
+    OUT_PARQUET.parent.mkdir(parents=True, exist_ok=True)
     out.write_parquet(OUT_PARQUET)
-    print(f"\nWrote:\n  {OUT_PARQUET}")
+    logger.info("wrote results to %s", OUT_PARQUET)
 
 
 if __name__ == "__main__":
