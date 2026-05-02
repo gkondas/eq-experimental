@@ -17,7 +17,7 @@ mkdir -p logs
 echo "Starting job on $(hostname) at $(date)"
 
 # Code Split Dir
-CODE_SPLIT_DIR="/users/gbk2114/mimic-eq/code-split/split__seed42__poolbbd2128d07ed__ood7450ad537df2__id1ad4b1f900eb"
+CODE_SPLIT_DIR="/groups/mm6677_gp/data/NWICU/code-split/split__seed42__pool3cc17c86f45e__oodb0e525c8bf23__id14c9331281ce"
 # Path to an eval_codes.yaml file with shape {codes: [...]}.
 INPUT="$CODE_SPLIT_DIR/eval_codes.yaml"
 # File path to write the predicates YAML to ({predicates: {<key>: {code: <code>}}}).
