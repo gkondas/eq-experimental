@@ -27,7 +27,7 @@ MEDS_PARQUET = Path(
     "/groups/mm6677_gp/data/MIMIC_MEDS/MEDS_cohort/intermediate/data/held_out"
 )  # reference MEDS dataframe
 TRAJ_ROOT = Path(
-    "/users/gbk2114/eic_stuff/trajectories_faster/medium_seq_1024/first/held_out"
+    "/users/gbk2114/eic_stuff/trajectories_final_combined"
 )  # dir OR single parquet file
 
 # yaml defining which codes/tasks to eval
@@ -36,7 +36,7 @@ PREDICATES_YAML = Path(
 )
 
 OUT_PARQUET = Path(
-    "/users/gbk2114/eic_stuff/traj-eval-results/temporal-auc-results.parquet"
+    "/users/gbk2114/eic_stuff/traj-eval-results/temporal-auc-results-final.parquet"
 )
 
 # Optional knobs
