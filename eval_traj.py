@@ -75,7 +75,7 @@ def main() -> None:
     )
 
     logger.info("result:\n%s", out)
-    OUT_PARQUET.parent.mkdir(parents=True, exist_ok=False)
+    OUT_PARQUET.parent.mkdir(parents=True, exist_ok=True)
     out.write_parquet(OUT_PARQUET)
     logger.info("wrote results to %s", OUT_PARQUET)
 
