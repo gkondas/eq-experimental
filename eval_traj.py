@@ -24,19 +24,19 @@ from MEDS_trajectory_evaluation.temporal_AUC_evaluation.trajectory_AUC import (
 # FILL THESE IN
 # ----------------------------
 MEDS_PARQUET = Path(
-    "/groups/mm6677_gp/data/MIMIC_MEDS/MEDS_cohort/intermediate/data/held_out"
+    "/groups/mm6677_gp/data/NWICU/intermediate/data/held_out"
 )  # reference MEDS dataframe
 TRAJ_ROOT = Path(
-    "/users/gbk2114/eic_stuff/rebuttle-traj-mimic/medium_seq_1024/combined"
+    "/users/gbk2114/eic_stuff/nwicu-eic/rebuttle-trajectories/medium_seq_1024/first/held_out"
 )  # dir OR single parquet file
 
 # yaml defining which codes/tasks to eval
 PREDICATES_YAML = Path(
-    "/users/gbk2114/mimic-eq/code-split/split__seed42__poolbbd2128d07ed__ood7450ad537df2__id1ad4b1f900eb/ar-eval-predicate-codes-w-clinical.yaml"
+    "/groups/mm6677_gp/data/NWICU/code-split/split__seed42__pool3cc17c86f45e__oodb0e525c8bf23__id14c9331281ce/ar-eval-predicate-codes-w-clinical.yaml"
 )
 
 OUT_PARQUET = Path(
-    "/users/gbk2114/eic_stuff/mimic-rebut-traj-eval-results/temporal-auc-results-final.parquet"
+    "/users/gbk2114/eic_stuff/nwicu-eic/rebuttle-traj-results/temporal-auc-results-final.parquet"
 )
 
 # Optional knobs
