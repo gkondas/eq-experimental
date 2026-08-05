@@ -3,7 +3,7 @@
 #SBATCH --output=logs/%x_%j.out
 #SBATCH --mail-user=gbk2114@cumc.columbia.edu
 #SBATCH --mail-type=END,FAIL
-#SBATCH --partition=cpu
+#SBATCH --partition=gpu
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=400G
 #SBATCH --time=30:00
