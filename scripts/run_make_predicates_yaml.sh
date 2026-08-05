@@ -17,12 +17,12 @@ mkdir -p logs
 echo "Starting job on $(hostname) at $(date)"
 
 # Code Split Dir
-CODE_SPLIT_DIR="/groups/mm6677_gp/data/NWICU/code-split/split__seed42__pool3cc17c86f45e__oodb0e525c8bf23__id14c9331281ce"
+CODE_SPLIT_DIR="/users/gbk2114/columbia-eq/code-split/split__seed42__poolc75b328e959b__ooda7759bfdd359__id71dda1371215"
 # Path to an eval_codes.yaml file with shape {codes: [...]}.
-INPUT="$CODE_SPLIT_DIR/eval_codes.yaml"
+INPUT="$CODE_SPLIT_DIR/eval_codes_w_clinical.yaml"
 # File path to write the predicates YAML to ({predicates: {<key>: {code: <code>}}}).
 # Must not already exist; the script opens it in exclusive-create mode.
-OUTPUT="$CODE_SPLIT_DIR/ar-eval-predicate-codes.yaml"
+OUTPUT="$CODE_SPLIT_DIR/ar-eval-predicate-codes-w-clinical.yaml"
 
 uv run python make_predicates_yaml.py \
     --input "$INPUT" \
